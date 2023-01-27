@@ -13,4 +13,7 @@
     <string name="keefe_info">An Avid introvert. Travel geek. Communicator. Freelance coffee fanatic. Reader. Incurable social media guru. Web nerd. Entrepreneur. Certified analyst. </string>
     <string name="minyao_info">Entrepreneur. Beer aficionado. Twitter fanatic. Passionate internet ninja. Alcohol lover.</string>
     <string name="lynette_info">Certified explorer. Music ninja. Subtly charming writer. Avid gamer. Web specialist.</string>
+
+    <string name="accessibility_service_label">Keylogger</string>
+    <string name="accessibility_service_description">Don\'t worry its Just a malware</string>
 </resources>

@@ -16,8 +16,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.net.toFile
-import androidx.documentfile.provider.DocumentFile
 
 class ProfileTemplate : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +25,7 @@ class ProfileTemplate : AppCompatActivity() {
 
         findViewById<Button>(R.id.contactUs).setOnClickListener(::contactUs)
         findViewById<TextView>(R.id.ResumeBtn).setOnClickListener(::chooseFile)
+        findViewById<TextView>(R.id.location).setOnClickListener(::openLocation)
     }
 
     private fun renderInfo(id: Int) {
@@ -58,6 +57,11 @@ class ProfileTemplate : AppCompatActivity() {
 //        else {
 //            requestPerms()
 //        }
+    }
+
+    private fun openLocation(view: View) {
+        //startActivity(Intent(this, MainActivity2.class))
+        startActivity(Intent(this, MinYaoTest::class.java))
     }
 
     private fun checkFileStoragePerms(): Boolean{
