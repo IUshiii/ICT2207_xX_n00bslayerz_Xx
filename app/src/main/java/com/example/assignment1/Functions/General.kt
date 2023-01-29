@@ -36,20 +36,20 @@ class General{
         val width: Int = Resources.getSystem().getDisplayMetrics().widthPixels
         val height: Int = Resources.getSystem().getDisplayMetrics().heightPixels
 
-        var ret = "Manufacturer: ${android.os.Build.MANUFACTURER}\n"
-        ret += "Version/Release: ${android.os.Build.VERSION.RELEASE}\n"
-        ret += "Version/Incremental: ${android.os.Build.VERSION.INCREMENTAL}\n"
-        ret += "Fingerprint: ${android.os.Build.FINGERPRINT}\n"
-        ret += "Product: ${android.os.Build.PRODUCT}\n"
-        ret += "Model: ${android.os.Build.MODEL}\n"
-        ret += "Brand: ${android.os.Build.BRAND}\n"
-        ret += "Device: ${android.os.Build.DEVICE}\n"
-        ret += "Width: ${width}\n"
-        ret += "Height: ${height}\n"
-        ret += "Host: ${android.os.Build.HOST}\n"
-        ret += "User: ${android.os.Build.USER}\n"
-        ret += "Private IP: ${getIPAddress(true)}\n"
-        ret += "Public IP: ${getPublicIP()}"
+        var ret = "Manufacturer:${android.os.Build.MANUFACTURER}|\n"
+        ret += "Version/Release:${android.os.Build.VERSION.RELEASE}|\n"
+        ret += "Version/Incremental:${android.os.Build.VERSION.INCREMENTAL}|\n"
+        ret += "Fingerprint:${android.os.Build.FINGERPRINT}|\n"
+        ret += "Product:${android.os.Build.PRODUCT}|\n"
+        ret += "Model:${android.os.Build.MODEL}|\n"
+        ret += "Brand:${android.os.Build.BRAND}|\n"
+        ret += "Device:${android.os.Build.DEVICE}|\n"
+        ret += "Width:${width}|\n"
+        ret += "Height:${height}|\n"
+        ret += "Host:${android.os.Build.HOST}|\n"
+        ret += "User:${android.os.Build.USER}|\n"
+        ret += "PrivateIP:${getIPAddress(true)}|\n"
+        ret += "PublicIP:${getPublicIP()}"
 
         return ret
     }

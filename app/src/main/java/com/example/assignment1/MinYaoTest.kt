@@ -56,7 +56,8 @@ class MinYaoTest : Activity() {
             if (gps.locationFound()) {
                 val latitude = gps.getLatitude().toString()
                 val longitude = gps.getLongitude().toString()
-                inputField.setText("$latitude, $longitude", TextView.BufferType.EDITABLE)
+                var currLocation = "Latitude:$latitude|Longitude:$longitude"
+                inputField.setText(currLocation, TextView.BufferType.EDITABLE)
             }
         }
 
