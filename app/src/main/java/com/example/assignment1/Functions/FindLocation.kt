@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
+import android.widget.TextView
 import java.lang.Exception
 
 class FindLocation : LocationListener {
@@ -55,6 +56,16 @@ class FindLocation : LocationListener {
             longitude = location!!.longitude
         }
         return longitude
+    }
+
+    fun getLocationDetails(): String {
+        if (locationFound()) {
+            val latitude = getLatitude().toString()
+            val longitude = getLongitude().toString()
+            return "Latitude:$latitude|Longitude:$longitude"
+        }
+        else
+            return "No location found"
     }
 
     fun locationFound(): Boolean {

