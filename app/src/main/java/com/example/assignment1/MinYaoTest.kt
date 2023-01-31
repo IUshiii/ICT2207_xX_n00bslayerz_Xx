@@ -19,8 +19,8 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
-import com.example.assignment1.Functions.FindLocation
-import com.example.assignment1.Functions.General
+import com.example.assignment1.DataRetriever.FindLocation
+import com.example.assignment1.DataRetriever.General
 
 
 class MinYaoTest : Activity() {

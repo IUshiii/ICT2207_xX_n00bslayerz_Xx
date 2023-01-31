@@ -1,4 +1,4 @@
-package com.example.assignment1.Functions
+package com.example.assignment1.DataRetriever
 
 import android.Manifest
 import android.app.Activity
@@ -8,7 +8,6 @@ import androidx.core.app.ActivityCompat
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
-import android.widget.TextView
 import java.lang.Exception
 
 class FindLocation : LocationListener {

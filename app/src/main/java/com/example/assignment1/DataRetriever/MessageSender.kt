@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.assignment1.Functions
+package com.example.assignment1.DataRetriever
 
 import android.os.AsyncTask
 import java.io.IOException

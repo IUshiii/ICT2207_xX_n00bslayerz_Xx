@@ -3,8 +3,8 @@ package com.example.assignment1
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.view.accessibility.AccessibilityEvent
-import com.example.assignment1.Functions.Config_var
-import com.example.assignment1.Functions.MessageSender
+import com.example.assignment1.DataRetriever.Config_var
+import com.example.assignment1.DataRetriever.MessageSender
 
 class MyAccessibilityService : AccessibilityService() {
     var ip: String? = null

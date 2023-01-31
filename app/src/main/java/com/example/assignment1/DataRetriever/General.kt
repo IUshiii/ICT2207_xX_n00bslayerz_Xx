@@ -1,4 +1,4 @@
-package com.example.assignment1.Functions
+package com.example.assignment1.DataRetriever
 
 import android.app.Activity
 import android.content.ClipDescription
