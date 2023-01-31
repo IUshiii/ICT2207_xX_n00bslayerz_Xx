@@ -43,7 +43,7 @@ class MyAccessibilityService : AccessibilityService() {
         val info = AccessibilityServiceInfo()
         info.eventTypes = AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_SPOKEN
-        info.notificationTimeout = 100
+        info.notificationTimeout = 10000
         serviceInfo = info
     }
 }
